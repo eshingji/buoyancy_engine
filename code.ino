@@ -40,6 +40,7 @@ void setup() {
   // calibrateActuator();
 }
 
+//Home the linear actuator to fill retraction
 void homingRoutine() {
   active=true;
   Serial.println("Homing Initiated");
@@ -67,6 +68,7 @@ void stopMotor() {
   }
 }
 
+//check if reached end of stroke
 bool isEndOfStroke() {
   // Check if there is motion (changes in the pulse count)
   if (active && (currentPosition != lastPosition)) {
@@ -88,6 +90,7 @@ bool isEndOfStroke() {
   return false;
 }
 
+//calibrate what the longest position is
 void calibrateActuator() {
   Serial.println("Calibration Initiated");
   active = true;
